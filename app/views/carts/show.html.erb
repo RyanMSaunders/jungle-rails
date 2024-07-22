@@ -3,6 +3,7 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
+  <% if enhanced_cart.present? %>
 
   <div class="panel panel-default items">
     <table class="table table-bordered">
@@ -32,6 +33,7 @@
     </table>
   </div>
 
+
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -48,5 +50,14 @@
       <% end %>
     </div>
   </div>
+
+  <% else %>
+    <tr>
+      <td colspan="3">Your cart is empty! <br>
+        <%= link_to 'Back to Home Page', products_path %>
+      </td>
+      
+    </tr>
+  <% end %>
 
 </section>

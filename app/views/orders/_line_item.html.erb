@@ -1,0 +1,28 @@
+
+
+
+<article>
+  <div class="card shadow-0 border mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-2">
+              <img src="<%= line_item.product.image.url %>" class="img-fluid" alt="Phone">
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+              <p class="text-muted mb-0"><%= line_item.product.name %></p>
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+              <p class="text-muted mb-0 small"><%= line_item.product.description %></p>
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+              <p class="text-muted mb-0 small">Qty: <%= line_item.quantity %></p>
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+              <p class="text-muted mb-0 small"><%= humanized_money_with_symbol line_item.total_price %></p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</article>

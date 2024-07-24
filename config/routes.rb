@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  get 'users/new'
+  get 'users/create'
   get 'about/index'
   root to: 'products#index'
 
@@ -17,6 +22,17 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
   end
+
+# These routes will be for signup. The first renders a form in the browse, the second will 
+  # receive the form and create a user in our database using the data given to us by the user.
+ get '/signup', to: 'users#new', as: 'signup'
+ resources :users, only: [:create]
+
+ # Login and logout routes
+ get '/login', to: 'sessions#new', as: 'login'
+ post '/login', to: 'sessions#create'
+ delete '/logout', to: 'sessions#destroy', as: 'logout'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

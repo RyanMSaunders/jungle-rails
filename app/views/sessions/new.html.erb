@@ -1,12 +1,15 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
 
-<h1>Login</h1>
+<h1 class=" mb-3 fw-normal">Login</h1>
 
-<%= form_tag '/login' do %>
-
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-
+<%= form_tag '/login', class: 'form-signin' do %>
+  <div class="form-floating mb-3">
+    <%= text_field_tag :email, nil, class: 'form-control', id: 'floatingInput', placeholder: 'name@example.com' %>
+    <label for="floatingInput">Email address</label>
+  </div>
+  <div class="form-floating mb-3">
+    <%= password_field_tag :password, nil, class: 'form-control', id: 'floatingPassword', placeholder: 'Password' %>
+    <label for="floatingPassword">Password</label>
+  </div>
+  
+  <%= submit_tag "Sign in", class: 'btn btn-primary w-100 py-2' %>
 <% end %>

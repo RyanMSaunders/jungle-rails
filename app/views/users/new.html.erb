@@ -1,14 +1,26 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
 
-<h1>Signup!</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
 
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+<h1 class=" mb-3 fw-normal">Signup!</h1>
 
+<%= form_for :user, url: '/users', html: { class: 'form-signup' } do |f| %>
+  <div class="form-floating mb-3">
+    <%= f.text_field :name, class: 'form-control', id: 'floatingName', placeholder: 'Name' %>
+    <label for="floatingName">Name</label>
+  </div>
+  <div class="form-floating mb-3">
+    <%= f.text_field :email, class: 'form-control', id: 'floatingEmail', placeholder: 'name@example.com' %>
+    <label for="floatingEmail">Email address</label>
+  </div>
+  <div class="form-floating mb-3">
+    <%= f.password_field :password, class: 'form-control', id: 'floatingPassword', placeholder: 'Password' %>
+    <label for="floatingPassword">Password</label>
+  </div>
+  <div class="form-floating mb-3">
+    <%= f.password_field :password_confirmation, class: 'form-control', id: 'floatingPasswordConfirmation', placeholder: 'Password Confirmation' %>
+    <label for="floatingPasswordConfirmation">Password Confirmation</label>
+  </div>
+  
+  <%= f.submit "Submit", class: 'btn btn-primary w-100 py-2' %>
 <% end %>
+
